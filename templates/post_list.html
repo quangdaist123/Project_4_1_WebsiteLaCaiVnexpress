@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Danh mục {{  NewsFeed.feed['title']   }}
+{% endblock %}
+
+{% block content %}
+    <br>
+    <h3>{{  NewsFeed.feed['title']   }}</h3>
+    <h6>Cập nhật lúc <span class="badge badge-primary">{{  NewsFeed.feed['published']  }}</span></h6>
+    <hr>
+    {% for entry in NewsFeed.entries %}
+        <a href="/detail/{{ entry.link  }}"><h5>{{ entry.title }}</h5></a>
+    {% endfor %}
+{% endblock %}
